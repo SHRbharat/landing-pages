@@ -912,7 +912,9 @@ html{
     align-items: center;
     gap : 1.5rem;
 }
-
+.contact-right{
+    display: flex;
+}
 .contact-content h1{
     font-size: 3rem;
     text-transform: uppercase;
@@ -940,15 +942,8 @@ html{
     letter-spacing: .1rem;
 }
 
-/* .content-right{
-    position: relative;
-} */
-
 .contact-right i{
     font-size: 2.5rem;
-    /* position: absolute;
-    top:20%;
-    right:0; */
     color:#ccc;
     cursor: pointer;
 }

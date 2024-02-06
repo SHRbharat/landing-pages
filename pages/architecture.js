@@ -13,14 +13,17 @@ navItems.forEach(item => {
 });
 
 
-if(window.innerWidth <= 500){
-    const searchIcon = document.querySelector(".search-bar i");
-    const cancelIcon = document.querySelector(".hamburger-menu i");
-
-    searchIcon.addEventListener('click',()=>{
-        navbar.classList.toggle("searching");
-    })
-    cancelIcon.addEventListener('click',()=>{
-        navbar.classList.toggle("searching");
-    })
+function searchBar(){
+    if(window.innerWidth <= 500){
+        const searchIcon = document.querySelector(".search-bar i");
+        const cancelIcon = document.querySelector(".hamburger-menu i");
+    
+        searchIcon.addEventListener('click',()=>{
+            navbar.classList.toggle("searching");
+        })
+        cancelIcon.addEventListener('click',()=>{
+            navbar.classList.toggle("searching");
+        })
+    }
 }
+window.addEventListener("resize",searchBar);
