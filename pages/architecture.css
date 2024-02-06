@@ -1,0 +1,1083 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Abel",sans-serif;
+    text-decoration: none;
+    outline:none;
+    color: #fff;
+}
+
+html{
+    font-size:62.5%; 
+}
+
+@media only screen and (max-width : 768px){
+    html{
+        font-size: 55%;
+    }
+}
+.container{
+    width:100%;
+    height:100%;
+    background-color: #202020;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~navbar styles~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.navbar{
+    width:100%;
+    height:10rem;
+    background-color: #202020;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:100;
+}
+
+.brand{
+    position: absolute;
+    top:50%;
+    left:8rem;
+    transform: translateY(-50%);
+    display: flex;
+    cursor: pointer;
+}
+.logo1{
+    width:6rem;
+    height:6rem;
+    border:.4rem solid #dba81b;
+}
+.logo2{
+    width:5rem;
+    height:5rem;
+    background-color: #202020;
+    position: absolute;
+    top:1.2rem;
+    left:1rem;
+}
+.logo3{
+    width:5rem;
+    height:5rem;
+    border:.4rem solid #dba81b;
+    background-color: #202020;
+    position: absolute;
+    top:2rem;
+    left:2rem;
+}
+
+.brand span{
+    font-size:3rem;
+    color:#fff;
+    letter-spacing: .3rem;
+    margin:1.5rem 0 0 3rem;
+}
+
+.search-bar{
+    position: absolute;
+    top:50%;
+    right:15rem;
+    transform:translateY(-50%);
+}
+
+.search-bar input{
+    width:45rem;
+    height:4rem;
+    background-color: #3e3e41;
+    border:none;
+    padding:2rem 2rem 2rem 4rem;
+    font-size: 1.6rem;
+    color: #fff;
+    border-radius:.5rem;
+}
+
+.search-bar input::placeholder{
+    color:#ccc;
+}
+
+.search-bar i{
+    position: absolute;
+    top:50%;
+    left:1.5rem;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.menu-icon{
+    width:4rem;
+    height:2.5rem;
+    position: absolute;
+    top:50%;
+    right:8rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index:100;
+}
+.hamburger-menu i{
+    display: none;
+}
+.line{
+    width:4rem;
+    height:.2rem;
+    background-color:  #ccc;
+    transition: all .3s;
+}
+.change  .line-1{
+    width:55%;
+    transform: rotateZ(-15deg) translate(-.2rem,.8rem) ;
+}
+.change  .line-3{
+    width:55%;
+    transform: rotateZ(15deg) translate(-.2rem,-.8rem) ;
+}
+
+.navigation{
+    width:100%;
+    height: 100vh;
+    background-color: #0b0b14;
+    position: absolute;
+    top:-100vh;   /*inittially*/
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: top .3s;
+}
+
+/* .change is added-removed using js onclick event */
+.change .navigation{
+    top:0; /*visible*/
+}
+
+.navigation a{
+    font-family:"Alfa Slab One",cursive;
+    font-size: 5rem;
+    color: #fff;
+    letter-spacing: .3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    /*for transition effects*/
+    opacity:0;
+    visibility: hidden;
+}
+.change .navigation a{
+    opacity: 1;
+    visibility: visible;
+}
+.change .navigation a:nth-child(1){
+    transition: all .2s .2s;
+}
+.change .navigation a:nth-child(2){
+    transition: all .2s .3s;
+}
+.change .navigation a:nth-child(3){
+    transition: all .2s .4s;
+}
+.change .navigation a:nth-child(4){
+    transition: all .2s .5s;
+}
+.change .navigation a:nth-child(5){
+    transition: all .2s .6s;
+}
+.change .navigation a:nth-child(6){
+    transition: all .2s .7s;
+}
+
+.navigation a::before{
+    content: "";
+    width:15rem;
+    height:.5rem;
+    background-color: #dba81b;
+    position: absolute;
+    top:50%;
+    left:-17rem;
+    transform: translateY(-50%);
+    /*initially scaled down to 0*/
+    transform: scale(0);
+    transform-origin: right;
+    transition: transform .3s;
+}
+.navigation a:hover::before{
+    transform: scale(1);
+}
+
+.navigation a::after{
+    content: "";
+    width:15rem;
+    height:.5rem;
+    background-color: #dba81b;
+    position: absolute;
+    top:50%;
+    right:-17rem;
+    transform: translateY(-50%);
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform .3s;
+}
+.navigation a:hover::after{
+    transform: scale(1);
+}
+
+@media only screen and (max-width : 1280px){
+    .brand{
+        left : 2rem;
+    }
+    .menu-icon{
+        right : 2rem;
+    }
+    .search-bar{
+        right : 8rem;
+    }
+    .search-bar input{
+        width: 35rem;
+        padding:2rem 2rem 2rem 4rem;
+    }
+}
+
+@media only screen and (max-width : 924px){
+    .navbar{
+        height : 8rem;
+    }
+    .brand span{
+        display: none;
+    }
+    .logo1{
+        width : 5rem;
+        height: 5rem;
+    }
+    .logo2{
+        width : 4rem;
+        height: 4.2rem;
+        top : 1rem;
+    }
+    .logo3{
+        width : 4rem;
+        height: 4rem;
+        top: 1.4rem;
+    }
+}
+@media only screen and (max-width : 768px){
+    .search-bar input{
+        width : 30rem;
+    }
+    .navigation a::before{
+        width : 8rem;
+        left : -10rem;
+    }
+    .navigation a::after{
+        width : 8rem;
+        right : -10rem;
+    }
+}
+@media only screen and (max-width : 500px){
+    /* redesigning search box for smaller screens */
+    .search-bar input{
+        width : 4rem;
+        cursor: pointer;
+        padding: 2rem 2rem;
+        transition: width .3s;
+    }
+    .searching .hamburger-menu .menu-icon{
+        display: none;
+    }
+    .searching .hamburger-menu i{
+        font-size: 2rem;
+        color: #fff;
+        position: absolute;
+        top:50%;
+        right:4rem;
+        transform: translateY(-50%);
+        cursor: pointer;
+        display: block; 
+    }
+    .searching .search-bar input{
+        width : 30rem;
+        padding: 2rem 2rem 2rem 4rem;
+    }
+    .searching .brand{
+        display: none;
+    }
+}
+@media only screen and (max-width : 375px){
+    .navigation a{
+        font-size: 3rem;
+    }
+    .searching .search-bar input{
+        width : 25rem;
+    }
+}
+@media only screen and (max-width : 320px){
+    .searching .search-bar input{
+        width : 20rem;
+    }
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~landing section styles~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.landing{
+    width:100%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12rem;
+}
+
+.landing-img{
+    width:92%;
+    height:70vh;
+}
+
+.landing-img img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    opacity: .3;
+}
+
+.banner{
+    position: absolute;
+    bottom:20%;
+    left:10%;
+}
+
+.banner-heading{
+    font-size: 9rem;
+    color:#fff;
+}
+
+.banner-heading span{
+    font-family: "Alfa Slab One",cursive;
+    font-size:8rem;
+    color: #dba81b;
+    letter-spacing: .5rem;
+}
+
+.banner-content{
+    display: flex;
+    align-items: center;
+}
+
+.banner-content p{
+    width:45rem;
+    font-size: 2rem;
+    color:#fff;
+    margin-right: 2rem;
+}
+
+.banner-content button{
+    width: 15rem;
+    height: 5rem;
+    background-color: transparent;
+    border:.3rem solid #fff;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media only screen and (max-width : 1024px){
+    .banner{
+        bottom : 15%;
+        left : 5%;
+    }
+    .banner-heading,
+    .banner-heading span{
+        font-size: 6rem;
+    }
+    .banner-content p{
+        width : 27rem;
+    }
+}
+
+@media only screen and (max-width : 532px){
+    .landing{
+        padding-top: 8rem;
+    }
+    .banner-heading{
+        display: flex;
+        flex-direction: column;
+    }
+    .banner-content{
+        flex-direction: column;
+        align-items: flex-start;
+        gap : 1rem;
+    }
+    .banner-content p{
+        width : 90%;
+    }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~about-section styles~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.about{
+    min-height: 80vh;
+    width:100%;
+    background-color: #313133;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap : 20rem;
+    padding-left: 10rem;
+}
+
+.about-left h1{
+    font-size: 5rem;
+    color: #fff;
+    width:50rem;
+    margin-bottom: 6rem;
+}
+
+.about-left p{
+    font-size: 2rem;
+    color: #fff;
+    width:50rem;
+    margin-bottom: 5rem;
+}
+
+.about-left button{
+    width: 18rem;
+    height: 5rem;
+    background-color: transparent;
+    border:.2rem solid #dba81b;
+    color: #dba81b;
+    font-size: 1.8rem;
+    letter-spacing: .1rem;
+    cursor: pointer;
+}
+
+.about-right{
+    position: relative;
+    width: 60rem;
+    height: 100%;
+}
+.frame{
+    width:50rem;
+    height:35rem;
+    border:3rem solid #555;
+    position: absolute;
+    top:-20rem;
+    right: 10rem;
+}
+
+.about-img-wrapper{
+    width:50rem;
+    height:35rem;
+    position: absolute;
+    top:-25rem;
+    right:5rem;
+}
+
+.about-img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.experience{
+    position: absolute;
+    top: 15rem;
+    right : 5rem;
+}
+.section-bottom{
+    height: 12rem;
+    width : 50rem;
+    border-right: 1rem solid #dba81b;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.section-bottom h1{
+    font-family: "Alfa slab One",cursive;
+    font-size: 6rem;
+    color: #555;
+    letter-spacing: .5rem;
+}
+
+.section-bottom h3{
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+@media only screen and (max-width : 1280px){
+    .about{
+        justify-content: space-between;
+        padding-left: 2rem;
+    }
+    .about-left h1{
+        font-size: 4rem;
+        width : 40rem;
+    }
+    .about-left p{
+        width : 40rem;
+    }
+}
+@media only screen and (max-width:1024px){
+    .frame,
+    .about-img-wrapper{
+        width : 40rem;
+        height : 30rem;
+    }
+    .experience{
+        top : 10rem;
+        width : 40rem;
+    }
+    .section-bottom{
+        height: 8rem;
+    }
+    .section-bottom h1{
+        font-size: 4rem;
+    }
+}
+@media only screen and (max-width : 956px){
+    .about{
+        min-height: 100vh;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap : 3rem;
+        padding: 3rem 2rem 8rem 2rem;
+    }
+    .about-left{
+        width : 100%;
+        padding :1rem;
+    }
+    .about-left h1,
+    .about-left p{
+        width : 100%;
+        margin: 0;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .frame{
+        top:3rem;
+    }
+    .about-img-wrapper{
+        top: -2rem;
+    }
+    .experience{
+        top:33rem;
+    }
+}
+@media only screen and (max-width : 500px){
+    .about{
+        padding: 3rem 2rem 4rem 2rem;
+        min-height: 90vh;
+    }
+    .about-left{
+        padding: 0;
+    }
+    .about-left h1{
+        font-size: 3rem;
+        font-weight: 500;
+        text-align: left;
+    }
+    .about-left p{
+        font-size: 1.6rem;
+        text-align: left;
+    }
+
+    .frame{
+        width : 30rem;
+        height : 25rem;
+        border-width: 1rem;
+        right : 15rem;
+    }
+    .about-img-wrapper{
+        width : 30rem;
+        height : 25rem;
+        right: 12rem;
+    }
+    .experience{
+        top:28rem;
+        right: 12rem;
+    }
+}
+@media only screen and (max-width : 352px){
+    .frame{
+        width : 30rem;
+        height : 25rem;
+        border-width: 1rem;
+        right : 16rem;
+    }
+    .about-img-wrapper{
+        width : 30rem;
+        height : 25rem;
+        right: 14rem;
+    }
+    .experience{
+        top:28rem;
+        right: 14rem;
+    }
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~project section styles~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.projects{
+    width:100%;
+    position: relative;
+}
+
+.projects-heading{
+    font-size: 8rem;
+    color:#fff;
+    letter-spacing: .2rem;
+    margin: 2rem;
+}
+
+.cards{
+    width:90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 2rem;
+    flex-wrap: wrap;
+    padding-bottom: 15rem;
+}
+
+.card{
+    flex-basis :30%;
+    height:50rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    transition: background-color .4s;
+}
+
+.card:hover .card-content{
+    background-color: rgba(0,0,0,.9);
+}
+
+.card-content::before{
+    content: "";
+    width:92%;
+    height: .1rem;
+    background-color: #dba81b;
+    position: absolute;
+    left:0;
+    top:2rem;
+    transform:scale(0);
+    transform-origin: left;
+    transition: transform .4s;
+}
+
+.card:hover .card-content::before{
+    transform: scale(1);
+}
+
+.card-content::after{
+    content: "";
+    width:.1rem;
+    height: 94%;
+    background-color: #dba81b;
+    position: absolute;
+    left:2rem;
+    top:0;
+    transform:scale(0);
+    transform-origin: top;
+    transition: transform .4s;
+}
+
+.card:hover .card-content::after{
+    transform: scale(1);
+}
+
+.card-content h1{
+    font-size: 2rem;
+    color:#fff;
+    position: absolute;
+    top:4rem;
+    left:4rem;
+    width:15rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+}
+
+.card:hover .card-content h1{
+    opacity: 1;
+    visibility: visible;
+    transition: all .5s .6s;
+}
+
+.card-content p{
+    font-size: 1.6rem;
+    color:#fff;
+    position: absolute;
+    top:13rem;
+    left:4rem;
+    width:17rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+}
+
+.card:hover .card-content p{
+    opacity: 1;
+    visibility: visible;
+    transition: all .5s .6s;
+}
+
+.designs,
+.client{
+    position: absolute;
+    right:8rem;
+    bottom:2rem;
+    z-index : 5;
+}
+
+@media only screen and (max-width : 1080px){
+    .cards{
+        width : 95%;
+    }
+    .card{
+        flex-basis: 40%;
+    }
+}
+@media only screen and (max-width : 924px){
+    .projects-heading{
+        font-size: 5rem;
+    }
+    .cards{
+        padding-bottom: 10rem;
+    }
+    .card{
+        flex-basis: 45%;
+        height: 45rem;
+    }
+}
+@media only screen and (max-width : 596px){
+    .card{
+        flex-basis: 95%;
+        height: 40rem;
+    }
+    .designs,
+    .client{
+        bottom: 1rem;
+        right : 3rem;
+    }
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~customers section styles~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.customers{
+    width:100%;
+    min-height: 80vh;
+    background-color: #313133;
+    padding: 5rem 0;
+    position: relative;
+}
+
+.customers-heading{
+    font-size: 8rem;
+    color:#fff;
+    margin:4rem;
+    letter-spacing: .2rem;
+}
+
+.customers-content{
+    width:90%;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.customers-card{
+    position: relative;
+    flex-basis: 40%;
+}
+
+.customers-card img{
+    width:8rem;
+    height: 8rem;
+    object-fit: cover;
+    position: absolute;
+    top:1.5rem;
+    left:2rem;
+    border-radius: 50%;
+    box-shadow: 0 .5rem .5rem rgba(0,0,0,.1);
+}
+
+.customers-card-content{
+    background-color: #777;
+    border-radius: .5rem;
+    box-shadow: 0 1rem 1rem rgba(0,0,0,.2);
+    padding:2rem;    
+}
+
+.customers-card-content h1{
+    font-size: 2.5rem;
+    color:#fff;
+    margin-bottom: 1rem;
+    position: relative;
+    left : 10rem;
+}
+
+.customers-card-content h3{
+    font-size: 1.8rem;
+    color:#ccc;
+    margin-bottom: 3rem;
+    position: relative;
+    left : 10rem;
+}
+
+.customers-card-content i{
+    font-size: 2rem;
+    color:#fff;
+}
+
+.customers-card-content p{
+    font-size: 1.6rem;
+    color:#fff;
+}
+@media only screen and (max-width : 1024px){
+    .customers-content{
+        width: 100%;
+    }
+}
+@media only screen and (max-width : 924px){
+    .customers{
+        padding-bottom: 12rem;
+    }
+    .customers-heading{
+        font-size: 5rem;
+    }
+    .customers-content{
+        align-items: center;
+        gap:2rem;
+    }
+    .customers-card{
+        flex-basis: 80%;
+    }
+    .client{
+        bottom : 2rem;
+    }
+}
+
+@media only screen and (max-width : 576px){
+    .customers-heading{
+        margin-left: 2rem;
+        margin-right: 0;
+        font-size: 4rem;
+    }
+    .customers-card{
+        flex-basis: 95%;
+    }
+    .customers-card-content h1,
+    .customers-card-content h3{
+        width : 20rem;
+    }
+    .client{
+        right : 2rem;
+    }
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~contact section styles~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.contact{
+    width: 100%;
+    min-height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-content{
+    width:80%;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap : 1.5rem;
+}
+
+.contact-content h1{
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #ccc;
+}
+
+.contact-content input{
+    width: 40rem;
+    height: 4rem;
+    background-color: transparent;
+    padding: 1.5rem 1.5rem 2.2rem 0;
+    border: none;
+    border-bottom: .1rem solid #777;
+    font-size: 1.8rem;
+    color: #ccc;
+    transition: border-bottom .3s;
+}
+
+.contact-content input:focus{
+    border-bottom: .1rem solid #dba81b;
+}
+
+.contact-content input::placeholder{
+    color:#ccc;
+    letter-spacing: .1rem;
+}
+
+/* .content-right{
+    position: relative;
+} */
+
+.contact-right i{
+    font-size: 2.5rem;
+    /* position: absolute;
+    top:20%;
+    right:0; */
+    color:#ccc;
+    cursor: pointer;
+}
+
+@media only screen and (max-width : 924px){
+    .contact-content{
+        width : 95%;
+    }
+}
+@media only screen and (max-width : 768px){
+    .contact-content input{
+        width : 30rem;
+    }
+}
+@media only screen and (max-width : 576px){
+    .contact-content{
+        flex-direction: column;
+    }
+    .contact-content h1{
+        text-align: center;
+    }
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~footer styles~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.footer{
+    width:100%;
+    min-height: 10rem;
+    background-color: #202020;
+    border-top: .1rem solid #3e3e41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap : 2rem;
+}
+
+.brand-footer{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+.brand-footer .logo1{
+    width:5rem;
+    height:5rem;
+    border:.4rem solid #dba81b;
+}
+.brand-footer .logo2{
+    width:4rem;
+    height:4rem;
+    background-color: #202020;
+    position: absolute;
+    top:1.4rem;
+    left:1rem;
+}
+.brand-footer .logo3{
+    width:4rem;
+    height:4rem;
+    border:.4rem solid #dba81b;
+    background-color: #202020;
+    position: absolute;
+    top:2rem;
+    left:2rem;
+}
+
+.brand-footer span{
+    font-size:3rem;
+    color:#fff;
+    letter-spacing: .3rem;
+    margin:1.5rem 0 0 3rem;
+}
+
+.copyright{
+    font-size: 1.6rem;
+    color:#ccc;
+}
+
+@media only screen and (max-width : 924px){
+    .footer-content{
+        width : 95%;
+    }
+    .copyright{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width : 576px){
+    .footer-content{
+        flex-direction: column;
+        padding-bottom: 4rem;
+        padding-top: 2rem;
+    }
+}
+
+@media only screen and (max-width : 342px){
+    .brand-footer .logo1{
+        width:4rem;
+        height:4rem;
+        border:.4rem solid #dba81b;
+    }
+    .brand-footer .logo2{
+        width:3rem;
+        height:3rem;
+        background-color: #202020;
+        position: absolute;
+        top:1.6rem;
+        left:1rem;
+    }
+    .brand-footer .logo3{
+        width:3rem;
+        height:3rem;
+        border:.4rem solid #dba81b;
+        background-color: #202020;
+        position: absolute;
+        top:2rem;
+        left:2rem;
+    }
+    
+    .brand-footer span{
+        font-size:2rem;
+        color:#fff;
+        letter-spacing:normal;
+        margin:1.5rem 0 0 2rem;
+    }
+}
